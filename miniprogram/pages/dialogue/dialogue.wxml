@@ -1,0 +1,29 @@
+<!--pages/dialogue/dialogue.wxml-->
+<view class="mine_warp">
+	<image class="bg_img" src="../../static/img/h.jpg"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">夸夸我</view>
+		</view>
+	</view>
+	<scroll-view scroll-top="{{scrollTop}}" scroll-y style="width:100%;height:80%;">
+		<block wx:for="{{chatList}}" wx:key="index">
+			<view class="chat_person" wx:if="{{index%2==0}}">
+			<view style="flex:1"></view>
+				<view>{{item}}</view>
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+		
+			<view class="chat_machine" wx:if="{{index%2!=0}}">
+				<image src="../../static/img/user.png"></image>
+				<view>{{item}}</view>
+			</view>
+		</block>
+	</scroll-view>
+
+  <view class="chat_input_box">
+    <input value="{{value}}" bindinput="getVal" placeholder="说些什么"></input>
+    <button hover-class="send_hover" hover-stay-time="100" bindtap="sendMsg">发送</button>
+  </view>
+
+</view>

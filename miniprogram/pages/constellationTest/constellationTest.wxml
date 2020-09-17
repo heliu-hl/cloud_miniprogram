@@ -1,0 +1,87 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="suggest_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/i.jpg"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">最近运气怎么样</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+		<view wx:if="{{(type=='今天'||type=='明天')&&!isOpen}}">
+			<view class="content_box">
+				<view>{{info.name}}</view>
+				<view>{{info.datetime}}</view>
+				<view>幸运色：{{info.color}}</view>
+				<view>幸运数字：{{info.number}}</view>
+				<view>综合指数：{{info.all}}</view>
+				<view>健康指数：{{info.health}}</view>
+				<view>爱情指数：{{info.love}}</view>
+				<view>财运指数：{{info.money}}</view>
+				<view>工作指数：{{info.work}}</view>
+				<view>匹配星座：{{info.QFriend}}</view>
+				<view>描述：{{info.summary}}</view>
+			</view>
+		</view>
+		<view wx:if="{{type=='本周'&&!isOpen}}">
+			<view class="content_box week_content_box">
+				<view>{{info.name}}</view>
+				<view>{{info.date}}</view>
+				<view>学习：{{info.job}}</view>
+				<view>恋情：{{info.love}}</view>
+				<view>财运：{{info.money}}</view>
+				<view>工作：{{info.work}}</view>
+			</view>
+		</view>
+		<view wx:if="{{type=='本月'&&!isOpen}}">
+			<view class="content_box">
+				<view>{{info.name}}</view>
+				<view>{{info.date}}</view>
+				<view class="month_content_box_item">综合：{{info.all}}</view>
+				<view class="month_content_box_item">健康：{{info.health}}</view>
+				<view class="month_content_box_item">恋情：{{info.love}}</view>
+				<view class="month_content_box_item">财运：{{info.money}}</view>
+				<view class="month_content_box_item">工作：{{info.work}}</view>
+			</view>
+		</view>
+		<view wx:if="{{type=='今年'&&!isOpen}}">
+			<view class="content_box">
+				<view>{{info.name}}</view>
+				<view>{{info.date}}</view>
+				<view>概述：{{info.mima.info}}</view>
+				<view class="month_content_box_item">说明：{{info.mima.text}}</view>
+				<view wx:if="{{info.mima.love}}" class="month_content_box_item">恋情：{{info.mima.love}}</view>
+				<view wx:if="{{info.mima.finance}}" class="month_content_box_item">财运：{{info.mima.finance}}</view>
+			</view>
+		</view>
+	</scroll-view>
+
+	<view wx:if="{{!isOpen}}" class="test_btn" bindtap="openTest">测</view>
+
+	<van-popup overlay-style="background-color: #fff;opacity: .0;" bind:close="closePopup" custom-style="width:100%; height:45%;background-color: #fff;opacity: .5;" show="{{isOpen}}" z-index="{{9999}}" position="bottom">
+		<view style="width:100%;height:100%;">
+			<view class="constellation_picker_box">
+				<view>你的星座</view>
+				<picker range="{{constellationList}}" value="{{index}}" bindchange="bindConstellationPicker">
+					<view class="constellation_picker_val">{{constellation}}</view>
+				</picker>
+			</view>
+
+			<view class="constellation_picker_box">
+				<view>选择时间</view>
+				<picker range="{{constellationType}}" range-key="name" value="{{index}}" bindchange="bindTypePicker">
+					<view class="constellation_picker_val">
+						{{type}}
+					</view>
+				</picker>
+			</view>
+
+			<view class="detail_button_box">
+				<button hover-class="detail_button_box_item3" hover-stay-time="100" bindtap="closePopup">取消</button>
+				<button hover-class="detail_button_box_item1" hover-stay-time="100" bindtap="testBtn">测试</button>
+			</view>
+		</view>
+	</van-popup>
+
+
+</view>

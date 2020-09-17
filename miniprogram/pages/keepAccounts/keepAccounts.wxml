@@ -1,0 +1,103 @@
+<!--pages/mine/mine.wxml-->
+
+<view class="mine_warp">
+	<image class="bg_img" src="../../static/img/444.jpg"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">钱都花哪里了？</view>
+		</view>
+	</view>
+	<view class="options_box">
+		<view bindtap="allAccountBtn">{{filterVal}}</view>
+		<van-button size="small" bind:click="filterAccount" icon="filter-o" round custom-class="filter_button_style">筛选</van-button>
+		<van-button bind:click="addAccount" size="small" icon="plus" round custom-class="filter_button_style">添加</van-button>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:76%">
+
+		<view wx:if="{{accountList.length>0}}">
+
+			<block wx:for="{{accountList}}" wx:for-item="classify" wx:key="index">
+				<van-cell-group border="{{false}}">
+					<view class="account_item_title">{{classify.time}}</view>
+					<block wx:for="{{classify.account}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="orders-o" custom-class="cell_style" title="{{item.type}}" value="￥{{item.money}}元" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</block>
+
+
+
+		</view>
+		<view wx:else class="no_account">
+			<image src="../../static/img/not_flag.png"></image>
+			<view>您暂时没有订单，快去添加一个吧 ~`o`~</view>
+		</view>
+
+	</scroll-view>
+	<view class="total_box">账单总计：￥{{total==0?'00.00':total}}元</view>
+
+	<van-dialog theme="round-button" custom-style="background:#fff;opacity: .5;color:rgb(238, 22, 22)" overlay="{{false}}" class-name="custom_dialog_style" show="{{isAdd}}" title="添加账单" show-cancel-button confirm-button-text="添加" use-slot bind:confirm="addConfirm" bind:cancel="addCancel" asyncClose>
+		<view class="add_accountr_box">
+			<view class="selete_box">
+				<view>账单时间</view>
+				<picker mode="date" end="{{endTime}}" bindchange="bindDateChange">
+					<view class="selete_picker">
+						<text>{{date}}</text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="selete_box">
+				<view>账单类型</view>
+				<picker bindchange="bindTypeChange" value="{{index}}" range="{{accountType}}">
+					<view class="selete_picker">
+						<text>{{type}}</text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="input_box">
+				<view>账单金额（元）</view>
+				<input type="number" value="{{money}}" placeholder="请输入金额" bindinput="moneyVal"></input>
+			</view>
+
+		</view>
+	</van-dialog>
+
+
+	<van-dialog theme="round-button" custom-style="background:#fff;opacity: .5;color:rgb(238, 22, 22)"  class-name="custom_dialog_style" overlay="{{false}}" show="{{isDetail}}" title="账单详情" show-cancel-button cancel-button-text="返回" confirm-button-text="删除账单" use-slot bind:confirm="delAccount" bind:cancel="detailCancel" asyncClose>
+		<view class="account_detail_box">
+			<view>该账单花在了 {{accountInfo.type}} 上</view>
+			<view>你在 {{accountInfo.date}} 消费</view>
+			<view>账单总共花了你 {{accountInfo.money}} 块大洋</view>
+		</view>
+	</van-dialog>
+
+
+
+	<van-dialog theme="round-button" custom-style="background:#fff;opacity: .5;color:rgb(238, 22, 22)"  class-name="custom_dialog_style" overlay-style="background-color: transparent;" show="{{isFilter}}" title="筛选账单" show-cancel-button confirm-button-text="筛选" use-slot bind:confirm="filterConfirm" bind:cancel="filterCancel" asyncClose>
+				<view class="add_accountr_box">
+			<view class="selete_box">
+				<view>选择时间</view>
+				<picker  bindchange="bindFilterDateChange" value="{{index}}" range="{{filterAccountDate}}">
+					<view class="selete_picker">
+						<text>{{filterDate}}</text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="selete_box">
+				<view>选择类型</view>
+				<picker bindchange="bindFilterTypeChange" value="{{index}}" range="{{filterAccountType}}">
+					<view class="selete_picker">
+						<text>{{filterType}}</text>
+					</view>
+				</picker>
+			</view>
+
+		</view>
+	</van-dialog>
+
+</view>

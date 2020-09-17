@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<view>
+<input bindinput="getval" placeholder="请输入内容"></input>
+  <button bindtap="clickSend">发送</button>
+</view>

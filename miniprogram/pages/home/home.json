@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    
+  },
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#9abde7",
+  "navigationBarTitleText": "立个flag",
+  "navigationStyle": "custom"
+}

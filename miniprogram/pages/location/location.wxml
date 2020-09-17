@@ -1,0 +1,15 @@
+<view class="ho_mewarp" style="width:100%;height:100%">
+	<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+		<view class="navigator_text" style="color:#333">导航</view>
+	</view>
+	<map scale="{{scaleVal}}" polyline="{{polyline}}" enable-scroll latitude="{{latitude}}" longitude="{{longitude}}" show-location="{{true}}" bindtap="bindpoiChange" show-compass="{{true}}" class="map_content" markers="{{markers}}"></map>
+	<view class="select_route">
+		<view data-type="start" bindtap="selectLocation">起点：{{start}}</view>
+		<view data-type="end" bindtap="selectLocation">终点：{{end}}</view>
+	</view>
+	<image class="my_address" bindtap="locationAddress" src="../../static/img/dingwei.png"></image>
+	<view class="button_box">
+		<van-button icon="plus" bind:click="addScale"></van-button>
+		<van-button bind:click="subScale">—</van-button>
+	</view>
+</view>

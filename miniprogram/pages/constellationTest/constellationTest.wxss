@@ -1,0 +1,91 @@
+page{
+  width: 100%;
+  height: 100%;
+  color: #eeee;
+}
+.navBar {
+  width: 100%;
+  height: 10%;
+  /* border-bottom: 1rpx solid #eee; */
+}
+.navigator_text{
+  width: 100%;
+  text-align: center;
+  font-size: 35rpx;
+  color: #eee;
+}
+.bg_img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+.detail_button_box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.detail_button_box button {
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 40rpx;
+  margin-top: 45rpx;
+}
+
+.detail_button_box button:nth-child(1){
+  background-color: #0febe0;
+}
+.detail_button_box button:nth-child(2){
+  background-color: #09acd4;
+}
+.constellation_picker_box{
+  padding: 33rpx 40rpx;
+}
+.constellation_picker_box>view{
+  font-size: 33rpx;
+  color: #6c22e2;
+  margin-bottom: 30rpx;
+}
+.constellation_picker_val{
+  font-size: 30rpx;
+  color: #fd12d6;
+  margin-left: 30rpx;
+}
+.content_box{
+  text-align: center;
+  color: #0a22f7;
+  font-size: 30rpx;
+  margin: 0 40rpx;
+}
+.content_box view{
+  padding-top: 30rpx;
+}
+.content_box view:nth-child(1){
+  font-size: 36rpx;
+  color: #a20ef8;
+}
+.content_box view:nth-last-child(1){
+  text-indent: 2em;
+}
+.week_content_box view,.month_content_box_item{
+  text-indent: 2rem;
+}
+.test_btn{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #37fa06c9;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  position: fixed;
+  bottom: 150rpx;
+  right: 0;
+  z-index: 999;
+}

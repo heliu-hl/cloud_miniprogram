@@ -1,0 +1,26 @@
+<!--pages/inRegard/inRegard.wxml-->
+<view class="suggest_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/h.jpg"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">开始做菜</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+		<van-notice-bar color="#eee" text="快行动起来，做给你喜欢的那个他（她）吃吧，加油！" left-icon="info-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar>
+		<view class="menu_detail_box">
+      <view>菜名：{{menuDetail.title}}</view>
+      <view>主料：{{menuDetail.ingredients}}</view>
+      <view>辅料：{{menuDetail.burden}}</view>
+      <view>图片：
+        <image src="{{menuDetail.albums}}"></image>
+      </view>
+      <view style="font-size:33rpx">步骤：</view>
+      <block wx:for="{{menuDetail.steps}}" wx:key="index">
+        <view>{{item.step}}</view>
+        <image mode ="aspectFit" src="{{item.img}}"></image>
+      </block>
+		</view>
+	</scroll-view>
+</view>

@@ -1,0 +1,72 @@
+/* pages/mine/mine.wxss */
+page,.mine_warp{
+  width: 100%;
+  height: 100%;
+}
+.navBar {
+  width: 100%;
+  height: 12%;
+  /* border-bottom: 1rpx solid #eee; */
+}
+.navigator_text{
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.user_box{
+  padding: 50rpx 0;
+}
+.user_header{
+  width: 160rpx;
+  height: 160rpx;
+  margin: 0 auto;
+  /* margin: 100rpx auto 30rpx; */
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user_name{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  text-align: center;
+  color: #fff;
+  padding-top: 30rpx;
+}
+.user_name image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+.get_user_info_btn{
+  width: 200rpx;
+  height: 80rpx;
+  /* opacity: .1; */
+  background-color: transparent;
+  color: #fff;
+  font-size: 33rpx;
+  margin: 0 auto;
+  border: 0;
+  outline: 0;
+}
+
+.bg_img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+.cell_style_item_hover{
+  background-color: #bbb;
+}
+.cell_style{
+  background: #fff !important;
+  opacity: .5 !important;
+}
+.cell_style_right{
+  color: #807f7a !important;
+}

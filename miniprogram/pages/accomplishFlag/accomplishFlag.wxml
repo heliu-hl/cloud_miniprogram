@@ -1,0 +1,85 @@
+<!--pages/home/home.wxml-->
+<view class="home_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="{{bgImg}}"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">已完成Flag</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+		<view class="page_title">自己立的Flag完成了吗？</view>
+		<view wx:if="{{flagAll.length>0}}">
+			<view wx:if="{{everyDayFlag.length>0}}">
+				<van-cell-group border="{{false}}">
+					<view class="flag_item_title">每日Flag</view>
+					<block wx:for="{{everyDayFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="success" custom-class="cell_style" value-class="cell_style_right" title="{{item.backlog}}" value="已完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{weekFlag.length>0}}">
+				<van-cell-group>
+					<view class="flag_item_title">本周Flag</view>
+					<block wx:for="{{weekFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover"  bindtap="clickItem">
+							<van-cell icon="success" custom-class="cell_style" value-class="cell_style_right" title="{{item.backlog}}" value="已完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{monthFlag.length>0}}">
+				<van-cell-group>
+					<view class="flag_item_title">本月Flag</view>
+					<block wx:for="{{monthFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover"  bindtap="clickItem">
+							<van-cell icon="success" custom-class="cell_style" value-class="cell_style_right" title="{{item.backlog}}" value="已完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{yearFlag.length>0}}">
+				<van-cell-group>
+					<view class="flag_item_title">今年Flag</view>
+					<block wx:for="{{yearFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover"  bindtap="clickItem">
+							<van-cell icon="success" custom-class="cell_style" value-class="cell_style_right" title="{{item.backlog}}" value="已完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+
+
+
+		</view>
+		<view wx:else class="not_flag">
+			<image src="../../static/img/not_flag.png"></image>
+			<view>您暂时还没有完成的Flag，加油哦∩▂∩~~~</view>
+		</view>
+	</scroll-view>
+
+
+	<van-popup overlay-style="background-color: #fff;opacity: .0;" bind:close="closePopup" custom-style="height:100%; width:60%;background-color: #fff;opacity: .6;" show="{{isAddFlag}}" z-index="{{9999}}" position="right">
+		<view style="width:100%;height:65%; margin-top:35%;">
+			<view class="add_flag_title">
+				已完成Flag详情
+			</view>
+			<view class="flag_content">
+				<view>{{flagInfo.type=="1"?'每日Flag':flagInfo.type=="2"?'本周Flag':flagInfo.type=="3"?'本月Flag':flagInfo.type=="4"?'今年Flag':''}}</view>
+				<view>{{flagInfo.date}} 创建</view>
+				<view>{{flagInfo.backlog}}</view>
+				<view>已完成</view>
+			</view>
+			<view class="button_box">
+				<button hover-class="button_box_item1_hover" hover-stay-time="100" bindtap="delBtn">删除</button>
+				<button hover-class="button_box_item2_hover" hover-stay-time="100" bindtap="closePopup">返回</button>
+			</view>
+		</view>
+	</van-popup>
+</view>

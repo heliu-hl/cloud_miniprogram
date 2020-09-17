@@ -1,0 +1,150 @@
+<!--pages/home/home.wxml-->
+<view wx:if="{{isFlag}}" class="ho_mewarp" style="width:100%;height:100%">
+	<image class="bg_img" src="{{bgImg}}"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">Flag</view>
+		</view>
+	</view>
+
+	<scroll-view scroll-y style="width:100%;height:89%">
+		<van-notice-bar wx:if="{{tipInfo.open}}" color="#1296db" text="{{tipInfo.text}}" left-icon="info-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar>
+		<view class="page_title">{{date}}</view>
+		<view wx:if="{{flagAll.length>0}}">
+			<view wx:if="{{everyDayFlag.length>0}}">
+				<van-cell-group border="{{false}}">
+					<view class="flag_item_title">每日Flag</view>
+					<block wx:for="{{everyDayFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="todo-list-o" custom-class="cell_style" title="{{item.backlog}}" value="未完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{weekFlag.length>0}}">
+				<van-cell-group border="{{false}}">
+					<view class="flag_item_title">每周Flag</view>
+					<block wx:for="{{weekFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="todo-list-o" custom-class="cell_style" title="{{item.backlog}}" value="未完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{monthFlag.length>0}}">
+				<van-cell-group border="{{false}}">
+					<view class="flag_item_title">每月Flag</view>
+					<block wx:for="{{monthFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="todo-list-o" custom-class="cell_style" title="{{item.backlog}}" value="未完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+			<view wx:if="{{yearFlag.length>0}}">
+				<van-cell-group border="{{false}}">
+					<view class="flag_item_title">今年Flag</view>
+					<block wx:for="{{yearFlag}}" wx:key="index">
+						<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+							<van-cell icon="todo-list-o" custom-class="cell_style" title="{{item.backlog}}" value="未完成" is-link />
+						</view>
+					</block>
+				</van-cell-group>
+			</view>
+
+
+
+
+		</view>
+		<view wx:else class="not_flag">
+			<image src="../../static/img/not_flag.png"></image>
+			<view>暂时没有Flag，快去添加一个吧∩▂∩~~~</view>
+		</view>
+	</scroll-view>
+
+	<view class="accomplish_flag_btn" hover-class="accomplish_flag_btn_hover" hover-stay-time="100" bindtap="lookAccomplish">
+		<view>已完成</view>
+	</view>
+
+	<view class="add_flag" hover-class="add_flag_hover" hover-stay-time="100" bindtap="addFlag">
+		<image src="../../static/img/add.png"></image>
+	</view>
+
+	<van-popup overlay-style="background-color: #fff;opacity: .0;" bind:close="closePopup" custom-style="height:100%; width:60%;background-color: #fff;opacity: .5;" show="{{isAddFlag}}" z-index="{{9999}}" position="right">
+		<view style="width:100%;height:65%; margin-top:35%;">
+			<view class="add_flag_title">
+				添加Flag
+			</view>
+			<view class="select_picker">
+				<view>Flag类型</view>
+				<picker range="{{flagType}}" range-key="name" value="{{index}}" bindchange="bindFlagType">
+					<view class="change_val">{{flagTypeVal}}</view>
+				</picker>
+			</view>
+			<view class="textarea_box">
+				<view>您的Flag</view>
+				<textarea value="{{flagVal}}" placeholder-style="font-size: 28rpx;color: #db2495;" placeholder="请输入你的Flag" bindinput="flagVinput"></textarea>
+			</view>
+			<view class="switch_box">
+				<view>已完成</view>
+				<switch bindchange="switchChange" color="#db2495"></switch>
+			</view>
+			<view class="button_box">
+				<button hover-class="button_box_item1_hover" hover-stay-time="100" bindtap="confirm">确定</button>
+				<button hover-class="button_box_item2_hover" hover-stay-time="100" bindtap="closePopup">取消</button>
+			</view>
+		</view>
+	</van-popup>
+
+	<van-popup overlay-style="background-color: #fff;opacity: .0;" bind:close="closeDetail" custom-style="height:100%; width:60%;background-color: #fff;opacity: .5;" show="{{isLookDetail}}" z-index="{{9999}}" position="right">
+		<view style="width:100%;height:75%; margin-top:35%;">
+			<view class="add_flag_title">
+				Flag 详情
+			</view>
+			<view class="flag_content">
+				<view>{{flagDetail.type=="1"?'每日Flag':flagDetail.type=="2"?'本周Flag':flagDetail.type=="3"?'本月Flag':flagDetail.type=="4"?'今年Flag':''}}</view>
+				<view>{{flagDetail.date}} 创建</view>
+				<view>{{flagDetail.backlog}}</view>
+				<view>未完成</view>
+			</view>
+			<view class="detail_button_box">
+				<button hover-class="detail_button_box_item1" hover-stay-time="100" bindtap="completeBtn">已完成</button>
+				<button hover-class="detail_button_box_item2" hover-stay-time="100" bindtap="delBtn">删除</button>
+				<button hover-class="detail_button_box_item3" hover-stay-time="100" bindtap="closeDetail">取消</button>
+			</view>
+		</view>
+	</van-popup>
+
+</view>
+
+
+
+<view wx:else class="ho_mewarp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/a.jpg"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text" style="color:#fff">菜谱</view>
+
+
+		</view>
+	</view>
+
+	<scroll-view scroll-y style="width:100%;height:89%">
+		<van-notice-bar wx:if="{{tipInfo.open}}" color="#eee" text="{{tipInfo.text}}" left-icon="info-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar>
+		<view class="page_title" style="color:#fff;">今天吃点什么？</view>
+		<van-cell-group border="{{false}}">
+			<view style="padding-top:30rpx"></view>
+			<block wx:for="{{menu}}" wx:key="index">
+				<view data-id="{{item._id}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickMenu">
+					<van-cell icon="{{item.albums}}" custom-style="background: #fff !important;opacity: .3 !important;" title="{{item.title}}" value="查看" is-link />
+				</view>
+			</block>
+		</van-cell-group>
+	</scroll-view>
+</view>
+
+
+<!-- <image mode="aspectFit" show-menu-by-longpress src="../../static/img/pay.jpg"></image> -->

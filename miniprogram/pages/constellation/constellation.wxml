@@ -1,0 +1,14 @@
+<!--pages/constellation/constellation.wxml-->
+<view class="home_warp" bindtap="showTabbar" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/timg.gif"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">星座运势</view>
+		</view>
+	</view>
+
+	<image class="xz_img" animation="{{rotateAnimation}}" src="../../static/img/111.png"></image>
+
+	<view class="immediately" hover-class="immediately_hover" bindtap="test" hover-stay-time="100">马上测试</view>
+
+</view>

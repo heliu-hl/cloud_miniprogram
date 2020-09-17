@@ -1,0 +1,24 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="suggest_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/suggest.jpg"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">意见与反馈</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+		<van-notice-bar color="#eee" text="您的建议就是我成长的动力，请认真填写（‐＾▽＾‐）" left-icon="info-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar>
+		<view class="suggest_content">
+		<view class="suggest_text">什么意见 ？</view>
+			<view class="suggest_type_box">
+				<block wx:for="{{suggestList}}" wx:key="index">
+					<view class="{{item==selSuggest?'sel_item_style':''}}" bindtap="changeSuggsest" data-type="{{item}}">{{item}}</view>
+				</block>
+			</view>
+		</view>
+		<view class="suggest_text">意见有哪些 ？</view>
+		<textarea class="textarea_style" placeholder="请输入您的意见" bindinput="textareaInp"></textarea>
+		<button bindtap="submit" class="submit_style" hover-class="submit_style_hover" hover-stay-time="100">提交</button>
+	</scroll-view>
+</view>

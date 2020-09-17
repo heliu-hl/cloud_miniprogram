@@ -1,0 +1,176 @@
+/* pages/home/home.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.navBar {
+  width: 100%;
+  height: 11%;
+  /* border-bottom: 1rpx solid #eee; */
+}
+.navigator_text{
+  width: 100%;
+  text-align: center;
+  color: #1296db;
+}
+.bg_img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+.add_flag{
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  right: 0;
+  bottom: 60rpx;
+  z-index: 999;
+  background-color: #cc4af3;
+  border-radius: 50%;
+  opacity: .6;
+}
+.add_flag image{
+  width:100%;
+  height: 100%;
+}
+.add_flag_hover{
+  background-color: #d27aec;
+}
+
+.accomplish_flag_btn{
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  right: 0;
+  bottom: 180rpx;
+  z-index: 999;
+  background-color: #e70cd5;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 23rpx;
+  color: #fff;
+  line-height: 90rpx;
+  opacity: .5;
+}
+.accomplish_flag_btn_hover{
+  background-color: #f56be9;
+}
+.page_title{
+  text-align: center;
+  font-size: 36rpx;
+  color: #7489e6;
+  padding-top: 15rpx;
+}
+.not_flag{
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  /* opacity: .6; */
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.not_flag image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.add_flag_title {
+  width: 100%;
+  text-align: center;
+  color: rgb(233, 146, 146);
+  font-size: 33rpx;
+  margin-bottom: 30rpx;
+}
+.button_box,.detail_button_box{
+  margin: 30rpx 20rpx 0;
+}
+.button_box button,.detail_button_box button{
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  color: rgb(255, 255, 255);
+}
+.button_box button:nth-child(2){
+  background: rgb(130, 238, 116);
+}
+.button_box_item2_hover{
+  background-color: rgb(33, 206, 10) !important;
+}
+.button_box button:nth-child(1){
+  background: rgb(199, 94, 248);
+}
+.button_box_item1_hover{
+  background-color: rgb(116, 4, 168) !important;
+}
+.cell_style{
+  background: #fff !important;
+  opacity: .5 !important;
+}
+.flag_item_title{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 20rpx 20rpx 30rpx;
+  color: #868682;
+}
+.cell_style_item_hover{
+  background-color: #bbb;
+}
+.detail_button_box button:nth-child(1){
+  background-color: #f3e66f;
+}
+
+.detail_button_box_item1{
+  background-color: #fcff4e !important;
+}
+
+.detail_button_box button:nth-child(2){
+  background-color: #f86767;
+}
+
+.detail_button_box_item2{
+  background-color: #fd1010 !important;
+}
+
+.detail_button_box button:nth-child(3){
+  background-color: #9ef78c;
+}
+
+.detail_button_box_item3{
+  background-color: #2bff00 !important;
+}
+
+.flag_content{
+  margin: 50rpx 20rpx;
+}
+
+.flag_content view{
+  margin-bottom: 30rpx;
+}
+.flag_content view:nth-child(1){
+  font-size: 30rpx;
+  color: #0965f0;
+}
+.flag_content view:nth-child(2){
+  font-size: 28rpx;
+  color: #d70cf1;
+}
+.flag_content view:nth-child(3){
+  font-size: 30rpx;
+  color: #f31383;
+}
+
+.flag_content view:nth-child(4){
+  font-size: 30rpx;
+  color: #6e6d6e;
+}
+
+.van_notice_bar_style{
+  background-color: transparent !important;
+  font-size: 30rpx !important;
+}
+
+
+

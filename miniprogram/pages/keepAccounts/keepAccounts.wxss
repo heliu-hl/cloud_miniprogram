@@ -1,0 +1,126 @@
+/* pages/mine/mine.wxss */
+page,.mine_warp{
+  width: 100%;
+  height: 100%;
+  /* color: rgb(238, 22, 22); */
+  color: #eee;
+}
+.navBar {
+  width: 100%;
+  height: 12%;
+  /* border-bottom: 1rpx solid #eee; */
+}
+.navigator_text{
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+
+.bg_img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+.cell_style_item_hover{
+  background-color: #bbb;
+}
+.cell_style{
+  background: #fff !important;
+  opacity: .5 !important;
+}
+.cell_style_right{
+  color: #807f7a !important;
+}
+.no_account {
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+}
+.no_account view{
+  opacity: .7;
+}
+.no_account image{
+  width: 300rpx;
+  height: 300rpx;
+  opacity: .5;
+}
+.options_box{
+  height: 5%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 40rpx 20rpx;
+  font-size: 33rpx;
+  /* justify-content: space-between; */
+  border-bottom: 1rpx solid rgba(222, 222, 222, .2);
+}
+.options_box>view{
+  flex:1
+}
+.filter_button_style{
+  background: rgb(238, 87, 87) !important;
+  opacity: .5 !important;
+  color: #fff !important;
+  margin-left: 30rpx;
+}
+.custom_dialog_style{
+  background: #fff;
+  opacity: .5 !important;
+}
+.add_accountr_box{
+  width: 100%;
+  height: 100%;
+  margin: 20rpx 30rpx;
+  color: rgb(41, 61, 245);
+}
+.selete_box,.input_box{
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+.selete_box>view,.input_box>view{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.selete_picker{
+  margin-left: 25rpx;
+  color: #7a03be;
+  font-size: 30rpx;
+}
+.input_box input{
+  font-size: 30rpx;
+  color: #7a03be;
+  padding-left: 25rpx;
+}
+
+.account_item_title{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 30rpx 20rpx;
+  color: #a8a8a7;
+}
+
+.cell_style_item_hover{
+  background-color: #bbb;
+}
+.cell_style{
+  background: #fff !important;
+  opacity: .5 !important;
+}
+.total_box{
+  text-align: center;
+  height: 5%;
+  font-size: 32rpx;
+  line-height: 65rpx;
+}
+.account_detail_box {
+  text-align: center;
+}
+.account_detail_box view{
+  margin: 30rpx 0;
+  
+}

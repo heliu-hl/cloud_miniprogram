@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/test/test",
+    "pages/home/home",
+    "pages/dialogue/dialogue",
+    "pages/location/location",
+    "pages/mine/mine",
+    "pages/constellation/constellation",
+    "pages/constellationTest/constellationTest",
+    "pages/accomplishFlag/accomplishFlag",
+    "pages/suggest/suggest",
+    "pages/inRegard/inRegard",
+    "pages/payQRcode/payQRcode",
+    "pages/keepAccounts/keepAccounts",
+    "pages/menuDetail/menuDetail"
+  ],
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.5",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "routePlan": {
+      "version": "1.0.8",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "list": [{
+        "pagePath": "pages/home/home",
+        "text": "FLAG",
+        "iconPath": "static/icon/db.png",
+        "selectedIconPath": "static/icon/dbs.png"
+      }, {
+        "pagePath": "pages/keepAccounts/keepAccounts",
+        "text": "日常记账",
+        "iconPath": "static/icon/zb.png",
+        "selectedIconPath": "static/icon/zbs.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "static/icon/gr.png",
+        "selectedIconPath": "static/icon/grs.png"
+      }
+    ]
+  },
+
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "weller",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  },
+  "usingComponents": {
+    "van-button": "./components/dist/button/index",
+    "van-popup": "./components/dist/popup/index",
+    "van-cell": "./components/dist/cell/index",
+    "van-cell-group": "./components/dist/cell-group/index",
+    "van-notice-bar": "./components/dist/notice-bar/index",
+    "van-dialog": "./components/dist/dialog/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

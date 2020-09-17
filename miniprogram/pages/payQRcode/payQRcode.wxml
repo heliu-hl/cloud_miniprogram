@@ -1,0 +1,19 @@
+<!--pages/inRegard/inRegard.wxml-->
+<view class="suggest_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/payBg.jpg"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">关于小程序</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+		<van-notice-bar color="#eee" text="可以长按图片保存到本地进行支付，感谢支持。（‐＾▽＾‐）" left-icon="info-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar>
+		<view class="code_img_box">
+			<view>感谢大哥打赏</view>
+			<image bindlongtap="saveImg" src="../../static/img/pay.jpg"></image>
+			<view></view>
+		</view>
+		<view class="author_info">作者微信：hl812844469</view>
+	</scroll-view>
+</view>

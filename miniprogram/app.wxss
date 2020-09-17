@@ -1,0 +1,32 @@
+
+/* picker */
+.select_picker, .textarea_box,.switch_box{
+  padding: 0 20rpx 30rpx;
+  border-bottom: 1rpx dashed #ccc;
+  margin-bottom: 30rpx;
+}
+.select_picker>view,.textarea_box view,.switch_box view{
+  font-size: 30rpx;
+  color: #ca3cab;
+  margin-bottom: 20rpx;
+}
+
+.select_picker .change_val{
+  font-size: 28rpx;
+  color: #db2495;
+  margin-left: 40rpx;
+}
+.textarea_box textarea{
+  width: 96%;
+  height: 200rpx;
+  border-radius: 20rpx;
+  padding: 2%;
+  background: #ddd;
+  font-size: 28rpx;
+  color: #db2495;
+}
+.switch_box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

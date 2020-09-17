@@ -1,0 +1,37 @@
+<!--pages/mine/mine.wxml-->
+
+<view class="mine_warp">
+	<image class="bg_img" src="../../static/img/mineBG.jpg"></image>
+	<view class="navBar">
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">个人中心</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:88%">
+		<view wx:if="{{userInfo.avatarUrl}}" class="user_box">
+			<view class="user_header">
+				<!-- <open-data type="userAvatarUrl"></open-data> -->
+				<image style="width:100%;height:100%;" src="{{userInfo.avatarUrl}}"></image>
+			</view>
+			<view class="user_name">
+				<!-- <open-data type="userNickName"></open-data> -->
+				<view>{{userInfo.nickName}}</view>
+				<image src="{{userInfo.gender==1?'../../static/img/nan.png':'../../static/img/nvsheng.png'}}"></image>
+			</view>
+		</view>
+		<view wx:else class="user_box">
+			<button class="get_user_info_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取头像</button>
+		</view>
+
+		<van-cell-group>
+			<block wx:for="{{list}}" wx:key="index">
+				<view data-type="{{item.type}}" style="border-bottom: 1rpx solid #ddd;" hover-stay-time="100" hover-class="cell_style_item_hover" bindtap="clickItem">
+					<van-cell icon="{{item.icon}}" url="{{item.url}}" custom-class="cell_style" value-class="cell_style_right" title="{{item.text}}" value="{{item.tip}}" is-link />
+				</view>
+			</block>
+
+		</van-cell-group>
+
+	</scroll-view>
+
+</view>

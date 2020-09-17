@@ -1,0 +1,48 @@
+/* pages/constellation/constellation.wxss */
+
+page{
+  width: 100%;
+  height: 100%;
+}
+.navBar {
+  width: 100%;
+  height: 10%;
+  /* border-bottom: 1rpx solid #eee; */
+}
+.navigator_text{
+  width: 100%;
+  text-align: center;
+  color: #1296db;
+}
+.bg_img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+.xz_img{
+  display: block;
+  width: 650rpx;
+  height: 650rpx;
+  margin: 90rpx auto;
+}
+.immediately{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  line-height: 200rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  background-color: #002b4b;
+  opacity: .4;
+  position: absolute;
+  top: 454rpx;
+  left: 273rpx;
+}
+.immediately_hover{
+  transform: scale(1.1);
+}

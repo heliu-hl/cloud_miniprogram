@@ -1,0 +1,17 @@
+<!--pages/inRegard/inRegard.wxml-->
+<view class="suggest_warp" style="width:100%;height:100%">
+	<image class="bg_img" src="../../static/img/guanyu.jpg"></image>
+	<view class="navBar">
+		<image bindtap="return" style="width:50rpx;height:50rpx;position: absolute;left:20rpx;top: {{navTop}}px;z-index:1000;" src="../../static/img/fanhui.png"></image>
+		<view class="navigation_Style" style="width:100%;position: absolute;top: {{navTop}}px;z-index:999;">
+			<view class="navigator_text">关于小程序</view>
+		</view>
+	</view>
+	<scroll-view scroll-y style="width:100%;height:90%">
+   <!-- <van-notice-bar color="#eee" text="您的建议就是我成长的动力，请认真填写（‐＾▽＾‐）" left-icon="user-circle-o" speed="{{30}}" custom-class="van_notice_bar_style"></van-notice-bar> -->
+	 <view class="inRegard_content">
+	{{text}}
+	 </view>
+	 <button wx:if="{{isOpen}}" class="give_author" bindtap="giveAuthor" hover-stay-time="100" hover-class="give_author_hover">打赏作者</button>
+	</scroll-view>
+</view>
